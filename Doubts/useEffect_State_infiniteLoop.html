@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatbot</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      
+
+        const { useState, createContext, useContext, useRef, useEffect } = React;
+        const UserContext = createContext();
+
+      function Apps() {
+        const [inputValue, setInputValue] = useState("");
+        //const count = useRef(0);
+        const [count, setCount] = useState(0);
+
+        useEffect(() => {
+          //count.current = count.current + 1;
+          setCount(prev => prev + 1);
+        }, );
+
+        return (
+          <>
+            <p>Type in the input field:</p>
+            <input
+              type="text"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+            />
+            <h1>Render Count: {count}</h1>
+          </>
+        );
+      }
+
+    
+      function App() {
+        return (
+          <>
+            <Apps />
+          </>
+        );
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
+
+
+
